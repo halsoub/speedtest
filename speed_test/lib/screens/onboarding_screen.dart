@@ -17,17 +17,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       "color": Colors.deepOrange,
       "title": "Welcome to SpeedTest",
-      "description": "Test your internet speed with accuracy."
+      "description": "Test your internet speed with accuracy.",
+      "image":
+          "https://img.freepik.com/free-vector/speed-test-concept-illustration_114360-3267.jpg?t=st=1738246881~exp=1738250481~hmac=8b3fc324f4688826868d32523a9f9f14888d4ab0c12343eba707cf54e339c2ec&w=740",
     },
     {
       "color": Colors.green,
       "title": "Real-Time Results",
-      "description": "Get real-time speed test results and insights."
+      "description": "Get real-time speed test results and insights.",
+      "image":
+          "https://img.freepik.com/free-vector/tiny-business-people-look-product-performance-indicator_335657-2444.jpg?t=st=1738249215~exp=1738252815~hmac=6f04699f7c0c6c8c68a6c9a7735e738a3bdb53f477aed662467b1238b4d5f5cd&w=1060",
     },
     {
       "color": Colors.blue,
       "title": "Start Your Journey",
-      "description": "Let's get started and test your speed now!"
+      "description": "Let's get started and test your speed now!",
+      "image":
+          "https://img.freepik.com/free-vector/fintech-business-related_24908-57036.jpg?t=st=1738247993~exp=1738251593~hmac=fc5ced42bb5e72c7b4ae6e600035a5e7ea1c211f0a36c1da9e021ba093516d5f&w=740"
     },
   ];
 
@@ -39,7 +45,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(
@@ -49,18 +59,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPageChanged: _onPageChanged,
               itemBuilder: (context, index) {
                 return Container(
-                  color: onboardingPages[index]['color'],
+                  // color: onboardingPages[index]['color'],
                   width: double.infinity,
                   height: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Container(
+                        height: height * 0.4,
+                        width: width,
+                        child: Image.network(
+                          onboardingPages[index]['image'],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(height: 25),
                       Text(
                         onboardingPages[index]['title'],
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -68,7 +87,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         onboardingPages[index]['description'],
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.grey,
                         ),
                         textAlign: TextAlign.center,
                       ),
