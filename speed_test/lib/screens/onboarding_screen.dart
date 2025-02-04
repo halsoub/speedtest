@@ -110,7 +110,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   height: 10,
                   width: _currentPage == index ? 20 : 10,
                   decoration: BoxDecoration(
-                    color: _currentPage == index ? Colors.black : Colors.grey,
+                    color: _currentPage == index
+                        ? Color.fromRGBO(0, 122, 255, 1)
+                        : Colors.grey,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
@@ -130,7 +132,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
+                        builder: (context) => const LoginScreen(),
+                      ),
                     );
                   } else {
                     _pageController.nextPage(

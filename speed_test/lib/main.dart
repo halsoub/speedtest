@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/myonboarding.dart';
+import 'screens/onboarding_screen.dart';
 import 'screens/onboarding_screen.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: UiuxSample(),
     );
   }
 }
